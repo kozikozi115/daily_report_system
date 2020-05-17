@@ -31,6 +31,7 @@ import javax.persistence.Table;
             )
 })
 @Entity
+
 public class Employee {
     @Id
     @Column(name = "id")
@@ -121,4 +122,5 @@ public class Employee {
     public void setDelete_flag(Integer delete_flag) {
         this.delete_flag = delete_flag;
     }
+
 }
