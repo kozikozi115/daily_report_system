@@ -13,11 +13,11 @@
             <div id="header">
                 <h1>日報管理システム</h1>
             </div>
-        <div id="content">
+            <div id="content">
                 ${param.content}
-        </div>
-        <div id="footer">
-            by Taro Kirameki.
+            </div>
+            <div id="footer">
+                by Taro Kirameki.
             </div>
         </div>
     </body>

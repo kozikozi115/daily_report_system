@@ -36,7 +36,7 @@ public class EmployeesIndexServlet extends HttpServlet {
         EntityManager em = DBUtil.createEntityManager();
 
         int page = 1;
-        try {
+        try{
             page = Integer.parseInt(request.getParameter("page"));
         } catch(NumberFormatException e) { }
         List<Employee> employees = em.createNamedQuery("getAllEmployees", Employee.class)
@@ -45,7 +45,7 @@ public class EmployeesIndexServlet extends HttpServlet {
                                      .getResultList();
 
         long employees_count = (long)em.createNamedQuery("getEmployeesCount", Long.class)
-                .getSingleResult();
+                                       .getSingleResult();
 
         em.close();
 
@@ -60,5 +60,4 @@ public class EmployeesIndexServlet extends HttpServlet {
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/employees/index.jsp");
         rd.forward(request, response);
     }
-
 }

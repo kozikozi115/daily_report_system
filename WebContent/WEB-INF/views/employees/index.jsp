@@ -4,10 +4,10 @@
     <c:param name="content">
         <c:if test="${flush != null}">
             <div id="flush_success">
-               <c:out value="${flush}"></c:out>
+                <c:out value="${flush}"></c:out>
             </div>
         </c:if>
-        <h2>従業員 一覧</h2>
+        <h2>従業員　一覧</h2>
         <table id="employee_list">
             <tbody>
                 <tr>
@@ -18,25 +18,25 @@
                 <c:forEach var="employee" items="${employees}" varStatus="status">
                     <tr class="row${status.count % 2}">
                         <td><c:out value="${employee.code}" /></td>
-                        <td><c:out value="{employee.name}" /></td>
+                        <td><c:out value="${employee.name}" /></td>
                         <td>
                             <c:choose>
-                                <c:when test="${employee.delate_flag == 1}">
-                                    (削除済み)
+                                <c:when test="${employee.delete_flag == 1}">
+                                    （削除済み）
                                 </c:when>
                                 <c:otherwise>
-                                    <a href="<c:url value='/employees/show?id={employee.id}' />">詳細を表示</a>
+                                    <a href="<c:url value='/employees/show?id=${employee.id}' />">詳細を表示</a>
                                 </c:otherwise>
                             </c:choose>
                         </td>
-                   </tr>
+                    </tr>
                 </c:forEach>
             </tbody>
-      </table>
+        </table>
 
-      <div id="pagination">
-            (全 ${employee_count} 件) <br />
-           <c:forEach var="i" begin="1" end="${((employees_count - 1) / 15) + 1}" step="1">
+        <div id="pagination">
+            （全 ${employees_count} 件）<br />
+            <c:forEach var="i" begin="1" end="${((employees_count - 1) / 15) + 1}" step="1">
                 <c:choose>
                     <c:when test="${i == page}">
                         <c:out value="${i}" />&nbsp;
@@ -45,9 +45,9 @@
                         <a href="<c:url value='/employees/index?page=${i}' />"><c:out value="${i}" /></a>&nbsp;
                     </c:otherwise>
                 </c:choose>
-           </c:forEach>
-            </div>
+            </c:forEach>
+        </div>
         <p><a href="<c:url value='/employees/new' />">新規従業員の登録</a></p>
 
-            </c:param>
+    </c:param>
 </c:import>
