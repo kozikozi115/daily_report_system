@@ -44,7 +44,6 @@ public class LoginFilter implements Filter {
 
         if(!servlet_path.matches("/css.*")) {
             HttpSession session = ((HttpServletRequest)request).getSession();
-
             Employee e = (Employee)session.getAttribute("login_employee");
 
             if(!servlet_path.equals("/login")) {
